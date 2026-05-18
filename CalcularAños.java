@@ -7,14 +7,24 @@ public class CalcularAños {
 		Scanner t = new Scanner(System.in);
 		int numerodias, years, meses, dias;
 		do {
-			System.out.println("Introduce el número de días a convertir (valores mayores de 0)");
-			numerodias = t.nextInt();
+			numerodias = introducirDias(t);
 		} while (numerodias <= 0);
 		years = (int) numerodias / 365;
 		meses = (int) (numerodias % 365) / 30;
 		dias = (numerodias % 365) % 30;
+		mostarResultado(numerodias, years, meses, dias);
+		t.close();
+	}
+
+	private static void mostarResultado(int numerodias, int years, int meses, int dias) {
 		System.out.println("El " + numerodias + " corresponde a " + years + " a " + meses + " m " + dias + " d.");
 		System.out.println("Gracias por utilizar mi programa");
-		t.close();
+	}
+
+	private static int introducirDias(Scanner t) {
+		int numerodias;
+		System.out.println("Introduce el número de días a convertir (valores mayores de 0)");
+		numerodias = t.nextInt();
+		return numerodias;
 	}
 }
